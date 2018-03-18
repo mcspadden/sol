@@ -14,3 +14,7 @@ print("MTC:" + now)
 LMST = MTC - 13750.987068 # show calculation for last number
 LMSt = time.strftime("%H:%M:%S", time.gmtime(LMST)) # formatting mtc
 print(LMSt)
+
+millis = millis / 1.02749125170
+MSD = time.strftime("%H:%M:%S", time.gmtime(millis))
+print(MSD)
