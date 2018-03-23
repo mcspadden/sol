@@ -8,13 +8,9 @@ ThreeT = TwoT * T  # T^3
 FourT = ThreeT * T  # T^4
 TTUTC = 69.184 + 59 * T - 51.2 * TwoT - 67.1 * ThreeT - 16.4 * FourT  # Terrestrial Time - UTC (32.184 + 37 = 69.184)
 JDTT = JDUT + (TTUTC / 86400) # finding the Julian Date in terrestrial time
-MTC = 24 % (24 * (((JDTT - 2451549.5) / 1.0274912517) + 44796.0 - 0.0009626)) # finding mtc
-now = time.strftime("%H:%M:%S", time.gmtime(MTC)) # formatting mtc
-print("MTC:" + now)
-LMST = MTC - 13750.987068 # show calculation for last number
-LMSt = time.strftime("%H:%M:%S", time.gmtime(LMST)) # formatting mtc
-print(LMSt)
 
-millis = millis / 1.02749125170
-MSD = time.strftime("%H:%M:%S", time.gmtime(millis))
-print(MSD)
+MSD = (JDTT - 2405522.0028779) / 1.0274912517 # finding mars sole date [^x]
+print("MSD:" + str(MSD)) # printing MSD
+
+MTC = (24 * MSD) % 24 # finding Coordinated Mars Time (MTC) [^y]
+print("MTC:" + str(MTC)) # printing MTC
