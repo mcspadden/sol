@@ -1,7 +1,7 @@
 import time
 
 millis = int(time.time() * 1000)  # time from unix epoch in milliseconds according to your device (UTC)
-JDUT = 2440587.5 + (millis / 86400000)  # Convert millis to Julian Date (UT) 8.64*10^7 = 86400000
+JDUT = 2440587.5 + (millis / 86400000)  # Convert millis to Julian Date (UT) 8.64*10^7 = 86400000 rm
 T = (JDUT - 2451545.0) / 36525  # offset from J2000 epoch (UT)
 TwoT = T * T  # T^2
 ThreeT = TwoT * T  # T^3
